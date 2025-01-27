@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-gray-50;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-yellow-400 text-black px-6 py-2.5 rounded-full font-bold 
+           hover:bg-yellow-500 transition-all transform hover:scale-105 hover:shadow-lg
+           active:scale-95 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white/20 backdrop-blur-sm text-white px-6 py-2.5 rounded-full 
+           hover:bg-white/30 transition-all transform hover:scale-105
+           active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50;
+  }
+
+  .input-primary {
+    @apply w-full px-4 py-3 rounded-xl bg-white border border-gray-200 
+           text-gray-900 placeholder-gray-500
+           focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent
+           transition-all hover:border-yellow-400;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 
+           transform hover:-translate-y-1 hover:scale-[1.02];
+  }
+
+  .nav-link {
+    @apply relative text-white/90 hover:text-white transition-colors;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 
+           transition-all duration-300 ease-out;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-padding-top: 100px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-yellow-400/50 rounded-full hover:bg-yellow-400;
+}
+
+/* Loading states */
+.loading {
+  @apply relative pointer-events-none opacity-75;
+}
+
+.loading::after {
+  @apply content-[''] absolute inset-0 bg-white/20 backdrop-blur-sm;
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2;
+}
