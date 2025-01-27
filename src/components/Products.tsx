@@ -3,7 +3,10 @@ import { Banana, Leaf, Flame, Sparkles, Droplets, Cookie } from 'lucide-react';
 import ndjoka_mure from '../assets/images/ndjoka_mure.jpg';
 import ndjoka_non_mure from '../assets/images/ndjoka_non_mur.jpg';
 import ndjoka_epice from '../assets/images/ndjoka_epice1.jpg';
+import ndjoka_energy from '../assets/images/ndjoka_energy.jpg';
+import ndjoka_chin_chin from '../assets/images/ndjoka_chin_chin.jpg';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const Products = () => {
   const navigate = useNavigate();
@@ -36,17 +39,48 @@ export const Products = () => {
     }
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
     <section id="products" className="bg-gray-50 py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold text-center mb-20">Nos Produits</h2>
+        <motion.h2 
+          className="text-5xl font-bold text-center mb-20"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Nos Produits
+        </motion.h2>
         
-        <div className="mb-32">
+        <motion.div 
+          className="mb-32"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <div className="grid md:grid-cols-3 gap-8">
             {plantainProducts.map((product, index) => (
-              <div 
-                key={index} 
-                className="group relative rounded-3xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+              <motion.div 
+                key={index}
+                variants={item}
+                className="group relative rounded-3xl overflow-hidden shadow-2xl"
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
                 <img
@@ -67,17 +101,22 @@ export const Products = () => {
                     En savoir plus
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Energy Drink Section */}
+        <motion.div 
+          className="grid md:grid-cols-2 gap-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-900 via-blue-900 to-purple-900">
             <div className="absolute top-0 right-0 w-1/2 h-full">
               <img 
-                src="src/assets/images/ndjoka_energy.jpg" 
+                src={ndjoka_energy}
                 alt="Energy Drink" 
                 className="w-full h-full object-cover opacity-50"
               />
@@ -103,11 +142,10 @@ export const Products = () => {
             </div>
           </div>
 
-          {/* Chin-Chin Section */}
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-800 via-yellow-800 to-amber-800">
             <div className="absolute top-0 right-0 w-1/2 h-full">
               <img 
-                src="src/assets/images/ndjoka_chin_chin.jpg" 
+                src={ndjoka_chin_chin}
                 alt="Chin-Chin" 
                 className="w-full h-full object-cover opacity-50"
               />
@@ -131,7 +169,7 @@ export const Products = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ import ndjoka_drink from "../assets/images/ndjoka_jus.jpg";
 import ndjoka_preparation from "../assets/images/ndjoka_preparations.jpg";
 import ndjoka_chin_chin from "../assets/images/ndjoka_chin_chin.jpg";
 import Ndjoka_claudel from "../assets/images/ndjoka_claudel.jpg";
+import { motion } from 'framer-motion';
 
 const heroImages = [
   Ndjoka_claudel,
@@ -52,23 +53,36 @@ export const Hero = () => {
       ))}
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
-        {/* <div className="inline-block animate-float">
-          <img className="w-96 h-48" src={Ndjoka_logo} alt="ndjoka logo" />
-        </div> */}
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white">
-          {" "}
+      <motion.div 
+        className="relative z-10 text-center px-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.h1 
+          className="text-6xl md:text-8xl font-bold mb-6 text-white"
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           NDJOKA
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-2xl mx-auto">
-          L'Afrique, le Grénier du Monde
-        </p>
-        <button
+        </motion.h1>
+        <motion.p 
+          className="text-xl md:text-2xl text-gray-200 mb-12 max-w-2xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          L'Afrique, le Grenier du Monde
+        </motion.p>
+        <motion.button
           onClick={scrollToProducts}
-          className="bg-yellow-400 hover:bg-yellow-500 text-black px-12 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 hover:shadow-xl"
+          className="bg-yellow-400 hover:bg-yellow-500 text-black px-12 py-4 rounded-full font-bold text-lg transition-all"
+          whileHover={{ scale: 1.05, boxShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
+          whileTap={{ scale: 0.95 }}
         >
           Explorer nos produits
-        </button>
+        </motion.button>
 
         {/* Image Indicators */}
         <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex space-x-2">
@@ -87,7 +101,7 @@ export const Hero = () => {
         </div>
 
         <ChevronDown className="absolute bottom-8 left-1/2 -translate-x-1/2 w-10 h-10 animate-bounce text-white" />
-      </div>
+      </motion.div>
     </div>
   );
 };

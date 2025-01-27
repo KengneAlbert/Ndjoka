@@ -126,7 +126,7 @@ export const products: Product[] = [
       "Mélange d'épices (piment, paprika, curcuma)",
       "Sel de mer",
     ],
-    sizes: [{ size: "250g", price: "1500 FCFA" }],
+    sizes: [{ size: "250g", price: "2000 FCFA" }],
   },
   {
     id: 4,

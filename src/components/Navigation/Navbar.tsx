@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Banana } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { LanguageSelector } from '../LanguageSelector'; // Ajout de l'import
 import Djoka_logo from '../../assets/images/ndjoka_logo.png';
 
 export const Navbar = () => {
@@ -74,11 +75,12 @@ export const Navbar = () => {
               className="flex items-center space-x-2 group"
               onClick={() => window.scrollTo(0, 0)}
             >
-              <img className='w-36 h-16' src={Djoka_logo} alt="ndjoka logo"/>
+              <img className='w-26 h-16' src={Djoka_logo} alt="ndjoka logo"/>
             </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
+              {/* <LanguageSelector /> Ajout du sélecteur de langue */}
               <Link to="/" className="nav-link">
                 Accueil
               </Link>
@@ -119,6 +121,7 @@ export const Navbar = () => {
           {isMenuOpen && (
             <div className="md:hidden absolute top-full left-0 right-0 mt-2 bg-black/95 backdrop-blur-md rounded-2xl border border-gray-800 overflow-hidden">
               <div className="py-3">
+                {/* <LanguageSelector /> Ajout du sélecteur de langue dans le menu mobile */}
                 <Link
                   to="/"
                   className="block px-6 py-2 text-white hover:bg-white/10 transition-colors"
