@@ -2,6 +2,7 @@ import { Navbar } from "../components/Navigation/Navbar";
 import { ContactBar } from "../components/Navigation/ContactBar";
 import { Distributor } from "../components/Distributor";
 import { Footer } from "../components/Footer";
+import Ndjoka_pub from "../assets/images/ndjoka_dist.jpg"
 
 export default function DistributorPage() {
   return (
@@ -12,7 +13,7 @@ export default function DistributorPage() {
       <div className="relative h-[40vh] bg-black">
         <div className="absolute inset-0">
           <img
-            src="src/assets/images/ndjoka_pub1.jpg"
+            src={Ndjoka_pub}
             alt="Distributor hero"
             className="w-full h-full object-cover opacity-50"
           />

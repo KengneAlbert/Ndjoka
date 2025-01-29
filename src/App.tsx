@@ -1,7 +1,6 @@
-import React from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { Routes } from './routes/index'; // Correction du chemin d'importation
+import { Routes } from './routes/index'; 
 import './i18n/config';
 
 function App() {

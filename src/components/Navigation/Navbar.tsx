@@ -129,7 +129,7 @@ export const Navbar = () => {
                   Accueil
                 </Link>
                 <Link
-                  to="/produits"
+                  to="/products"
                   className="block px-6 py-2 text-white hover:bg-white/10 transition-colors"
                 >
                   Nos Produits
@@ -148,7 +148,7 @@ export const Navbar = () => {
                 </Link>
                 <div className="px-4 pt-2">
                   <Link
-                    to="/devenir-distributeur"
+                    to="/distributors"
                     className="block bg-yellow-400 text-black px-6 py-2 rounded-full font-bold 
                              text-center hover:bg-yellow-500 transition-colors"
                   >
